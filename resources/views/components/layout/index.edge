@@ -1,0 +1,43 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @if ($slots.meta)
+      {{{ await $slots.meta() }}}
+    @endif
+    
+    <title>
+      KidsParc
+    </title>
+  </head>
+  <body class="bg-green-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="bg-gray-800 text-white p-6 shadow-lg flex justify-between items-center rounded-b-3xl">
+      <h1 class="text-2xl font-semibold">
+        🌿 KidsParc
+      </h1>
+      <nav class="space-x-6 text-lg">
+        <a href="/" class="hover:underline text-gray-300 hover:text-white">Air de jeux</a>
+        <a href="/a-propos" class="hover:underline text-gray-300 hover:text-white">À propos</a>
+        <a href="/contact" class="hover:underline text-gray-300 hover:text-white">Contact</a>
+      </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="flex-1 container mx-auto p-8 bg-green-100 rounded-2xl shadow-xl mt-6">
+      @if ($slots.main)
+        {{{ await $slots.main() }}}
+      @endif
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white text-center p-6 mt-6 rounded-t-3xl">
+      © 2025 - KidsParc - Tous droits réservés
+    </footer>
+
+  </body>
+</html>
