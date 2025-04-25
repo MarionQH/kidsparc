@@ -1,14 +1,18 @@
-
-@import "tailwindcss";
-
-* {
-  margin: 0;
-  padding: 0;
-}
+@import 'tailwindcss';
 
 html,
 body {
   height: 100%;
   width: 100%;
 }
+main {
+  background-image: url('/public/wood.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Comfortaa', cursive;
+}
 
+.customgreen {
+  background-color: #2B9950;
+}

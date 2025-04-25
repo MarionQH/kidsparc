@@ -1,43 +1,84 @@
-@vite(['resources/css/app.css', 'resources/js/app.js'])
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     @if ($slots.meta)
       {{{ await $slots.meta() }}}
     @endif
-    
-    <title>
-      KidsParc
-    </title>
-  </head>
-  <body class="bg-green-50 text-gray-800 font-sans min-h-screen flex flex-col">
+    <title>KidsParc</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Comfortaa', cursive;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
 
     <!-- HEADER -->
-    <header class="bg-gray-800 text-white p-6 shadow-lg flex justify-between items-center rounded-b-3xl">
-      <h1 class="text-2xl font-semibold">
-        🌿 KidsParc
-      </h1>
-      <nav class="space-x-6 text-lg">
-        <a href="/" class="hover:underline text-gray-300 hover:text-white">Air de jeux</a>
-        <a href="/a-propos" class="hover:underline text-gray-300 hover:text-white">À propos</a>
-        <a href="/contact" class="hover:underline text-gray-300 hover:text-white">Contact</a>
-      </nav>
+    <header>
+        <nav class="customgreen text-white border-b border-green-700">
+            <div class="px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+
+                    <!-- Logo -->
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="swings.png" alt="KidsParc" class="h-8 w-auto rounded-full bg-white">
+                        <span class="text-xl font-bold">KidsParc</span>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#" class="hover:text-green-300 text-sm font-medium">Aires de jeux</a>
+                        <a href="#" class="hover:text-green-300 text-sm font-medium">Avis</a>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="#" class="text-sm hover:underline">Connexion</a>
+                        <a href="#" class="text-sm hover:underline">Inscription</a>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" type="button" class="text-white hover:text-green-300 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu (à afficher avec JS selon ton besoin) -->
+            <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-green-600">
+                <a href="#" class="block py-2 hover:text-green-300">Accueil</a>
+                <a href="#" class="block py-2 hover:text-green-300">Équipe</a>
+                <a href="#" class="block py-2 hover:text-green-300">Fonctionnalités</a>
+                <a href="#" class="block py-2 hover:text-green-300">Contact</a>
+                <a href="#" class="block py-2 text-sm hover:underline">Connexion</a>
+            </div>
+        </nav>
     </header>
 
     <!-- CONTENU PRINCIPAL -->
-    <main class="flex-1 container mx-auto p-8 bg-green-100 rounded-2xl shadow-xl mt-6">
-      @if ($slots.main)
-        {{{ await $slots.main() }}}
-      @endif
+    <main class="flex-grow p-4">
+        @if ($slots.main)
+            {{{ await $slots.main() }}}
+        @endif
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-800 text-white text-center p-6 mt-6 rounded-t-3xl">
-      © 2025 - KidsParc - Tous droits réservés
+    <footer class="text-white p-4 rounded-t-lg customgreen">
+        <div class="container mx-auto flex justify-center items-center px-4">
+            <div class="text-center">
+                © 2025 - KidsParc - Tous droits réservés
+            </div>
+        </div>
     </footer>
 
-  </body>
+</body>
 </html>
